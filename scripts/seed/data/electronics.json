@@ -1,0 +1,56 @@
+[
+  {
+    "name": "boAt Airdopes 500 ANC TWS Earbuds with Spatial Audio",
+    "brand": "boAt",
+    "category": "electronics",
+    "subcategory": "Audio",
+    "description": "Active Noise Cancellation up to 35dB, Quad Mics with ENx technology, 50-hour playback, ASAP Fast Charging (10 min charge = 120 min play).",
+    "mrp": 4999,
+    "price": 1499,
+    "discount": 70,
+    "manufacturerName": "Imagine Marketing Limited (boAt)",
+    "manufacturerAddress": "Supreme Business Park, Powai, Mumbai, Maharashtra - 400076, India",
+    "countryOfOrigin": "India",
+    "netQuantity": "1 Pair Earbuds, 1 Charging Case, 1 Type-C Cable",
+    "stock": 95,
+    "gstSlab": 18,
+    "rating": 4.6,
+    "reviewCount": 15400,
+    "seller": "boAt Lifestyle Official",
+    "isFeatured": true,
+    "images": [
+      "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=800&q=80"
+    ],
+    "dimensions": "6cm x 4.5cm x 2.5cm",
+    "barcode": "890123456712",
+    "id": 53587,
+    "createdAt": "2026-10-23T15:34:13.587Z"
+  },
+  {
+    "name": "Noise ColorFit Pulse 4 Max Smartwatch with 1.96-inch AMOLED Display",
+    "brand": "Noise",
+    "category": "electronics",
+    "subcategory": "Wearables",
+    "description": "Stunning 1.96\" Always-On AMOLED screen, Bluetooth calling with Tru Sync, 7-day battery life, 100+ sports modes, and IP68 water resistance.",
+    "mrp": 5999,
+    "price": 1999,
+    "discount": 67,
+    "manufacturerName": "Nexxbase Marketing Pvt. Ltd. (Noise)",
+    "manufacturerAddress": "Udyog Vihar Phase 4, Gurugram, Haryana - 122015, India",
+    "countryOfOrigin": "India",
+    "netQuantity": "1 Smartwatch, 1 Magnetic Charging Cable, Manual",
+    "stock": 70,
+    "gstSlab": 18,
+    "rating": 4.5,
+    "reviewCount": 8900,
+    "seller": "Noise Direct",
+    "isFeatured": true,
+    "images": [
+      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80"
+    ],
+    "dimensions": "4.5cm Dial, Silicone Strap",
+    "barcode": "890123456713",
+    "id": 53589,
+    "createdAt": "2026-10-23T15:34:13.588Z"
+  }
+]

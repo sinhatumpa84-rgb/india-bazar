@@ -137,6 +137,25 @@ paths:
               schema:
                 $ref: "#/components/schemas/ErrorResponse"
 
+  /scraper/scrape:
+    post:
+      operationId: scrapeProducts
+      tags: [products]
+      summary: Trigger real-time web scraping
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ScrapeRequest"
+      responses:
+        "200":
+          description: Scraped products result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ScrapeResponse"
+
   /categories:
     get:
       operationId: listCategories
@@ -528,6 +547,13 @@ components:
         stock: { type: number }
         seller: { type: string }
         isFeatured: { type: boolean }
+        manufacturerName: { type: ["string", "null"] }
+        manufacturerAddress: { type: ["string", "null"] }
+        countryOfOrigin: { type: ["string", "null"] }
+        netQuantity: { type: ["string", "null"] }
+        gstSlab: { type: ["number", "null"] }
+        dimensions: { type: ["string", "null"] }
+        barcode: { type: ["string", "null"] }
         createdAt: { type: string }
       required: [id, name, description, price, mrp, discount, category, brand, images, rating, reviewCount, stock, seller, isFeatured, createdAt]
 
@@ -542,6 +568,26 @@ components:
         page: { type: number }
         totalPages: { type: number }
       required: [products, total, page, totalPages]
+
+    ScrapeRequest:
+      type: object
+      properties:
+        category: { type: string }
+        query: { type: string }
+        limit: { type: number }
+
+    ScrapeResponse:
+      type: object
+      properties:
+        success: { type: boolean }
+        message: { type: string }
+        count: { type: number }
+        source: { type: string }
+        products:
+          type: array
+          items:
+            $ref: "#/components/schemas/Product"
+      required: [success, message, count, source, products]
 
     Category:
       type: object

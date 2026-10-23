@@ -25,6 +25,13 @@ function buildProduct(p: typeof productsTable.$inferSelect) {
     stock: p.stock,
     seller: p.seller,
     isFeatured: p.isFeatured,
+    manufacturerName: p.manufacturerName ?? null,
+    manufacturerAddress: p.manufacturerAddress ?? null,
+    countryOfOrigin: p.countryOfOrigin ?? "India",
+    netQuantity: p.netQuantity ?? null,
+    gstSlab: p.gstSlab ?? 18,
+    dimensions: p.dimensions ?? null,
+    barcode: p.barcode ?? null,
     createdAt: p.createdAt.toISOString(),
   };
 }

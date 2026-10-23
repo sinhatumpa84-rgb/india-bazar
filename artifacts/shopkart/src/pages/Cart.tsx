@@ -121,7 +121,7 @@ export default function Cart() {
                         <Link href={`/product/${item.productId}`} className="font-medium hover:text-primary line-clamp-2 pr-8 text-sm md:text-base">
                           {item.product.name}
                         </Link>
-                        {item.product.deliveryCharge === 0 && (
+                        {item.product.price >= 499 && (
                           <span className="text-[10px] font-bold text-white bg-green-600 px-1.5 py-0.5 rounded whitespace-nowrap hidden sm:block">FREE Delivery</span>
                         )}
                       </div>

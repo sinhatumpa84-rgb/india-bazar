@@ -31,6 +31,8 @@ export * from './product';
 export * from './productsResponse';
 export * from './review';
 export * from './reviewInput';
+export * from './scrapeRequest';
+export * from './scrapeResponse';
 export * from './userProfile';
 export * from './userProfileUpdate';
 export * from './wishlistInput';

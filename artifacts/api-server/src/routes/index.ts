@@ -6,6 +6,7 @@ import ordersRouter from "./orders";
 import addressesRouter from "./addresses";
 import reviewsRouter from "./reviews";
 import userRouter from "./user";
+import scraperRouter from "./scraper";
 
 const router: IRouter = Router();
 
@@ -16,5 +17,6 @@ router.use(ordersRouter);
 router.use(addressesRouter);
 router.use(reviewsRouter);
 router.use(userRouter);
+router.use(scraperRouter);
 
 export default router;

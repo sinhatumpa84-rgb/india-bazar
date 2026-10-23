@@ -37,6 +37,8 @@ import type {
   ProductsResponse,
   Review,
   ReviewInput,
+  ScrapeRequest,
+  ScrapeResponse,
   UserProfile,
   UserProfileUpdate,
   WishlistInput,
@@ -461,6 +463,77 @@ export function useGetProduct<TData = Awaited<ReturnType<typeof getProduct>>, TE
 
 
 
+
+export const getScrapeProductsUrl = () => {
+
+
+
+
+  return `/api/scraper/scrape`
+}
+
+/**
+ * @summary Trigger real-time web scraping
+ */
+export const scrapeProducts = async (scrapeRequest?: ScrapeRequest, options?: Parameters<typeof customFetch>[1]): Promise<ScrapeResponse> => {
+
+  return customFetch<ScrapeResponse>(getScrapeProductsUrl(),
+  {
+    ...options,
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', ...options?.headers },
+    body: JSON.stringify(scrapeRequest)
+  }
+);}
+
+
+
+
+
+export const getScrapeProductsMutationOptions = <TError = ErrorType<unknown>,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof scrapeProducts>>, TError,{data?: BodyType<ScrapeRequest>}, TContext>, request?: SecondParameter<typeof customFetch>}
+): UseMutationOptions<Awaited<ReturnType<typeof scrapeProducts>>, TError,{data?: BodyType<ScrapeRequest>}, TContext> => {
+
+const mutationKey = ['scrapeProducts'];
+const {mutation: mutationOptions, request: requestOptions} = options ?
+      options.mutation && 'mutationKey' in options.mutation && options.mutation.mutationKey ?
+      options
+      : {...options, mutation: {...options.mutation, mutationKey}}
+      : {mutation: { mutationKey, }, request: undefined};
+
+
+
+
+      const mutationFn: MutationFunction<Awaited<ReturnType<typeof scrapeProducts>>, {data?: BodyType<ScrapeRequest>}> = (props) => {
+          const {data} = props ?? {};
+
+          return  scrapeProducts(data,requestOptions)
+        }
+
+
+
+
+
+
+  return  { mutationFn, ...mutationOptions }}
+
+    export type ScrapeProductsMutationResult = NonNullable<Awaited<ReturnType<typeof scrapeProducts>>>
+    export type ScrapeProductsMutationBody = BodyType<ScrapeRequest> | undefined
+    export type ScrapeProductsMutationError = ErrorType<unknown>
+
+    /**
+ * @summary Trigger real-time web scraping
+ */
+export const useScrapeProducts = <TError = ErrorType<unknown>,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof scrapeProducts>>, TError,{data?: BodyType<ScrapeRequest>}, TContext>, request?: SecondParameter<typeof customFetch>}
+ ): UseMutationResult<
+        Awaited<ReturnType<typeof scrapeProducts>>,
+        TError,
+        {data?: BodyType<ScrapeRequest>},
+        TContext
+      > => {
+      return useMutation(getScrapeProductsMutationOptions(options));
+    }
 
 export const getListCategoriesUrl = () => {
 

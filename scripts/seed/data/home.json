@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Philips Digital Air Fryer HD9252 (4.1L Capacity, Rapid Air Tech)",
+    "brand": "Philips",
+    "category": "home",
+    "subcategory": "Kitchen Appliances",
+    "description": "Fry with up to 90% less fat. Rapid Air technology, 7 preset touch screen cooking modes, keep warm function, dish-washer safe non-stick basket.",
+    "mrp": 11995,
+    "price": 6499,
+    "discount": 46,
+    "manufacturerName": "Philips India Limited",
+    "manufacturerAddress": "DLF Cyber City, Tower A, Gurugram, Haryana - 122002, India",
+    "countryOfOrigin": "India",
+    "netQuantity": "1 Air Fryer Unit with Recipe Booklet",
+    "stock": 40,
+    "gstSlab": 18,
+    "rating": 4.7,
+    "reviewCount": 3200,
+    "seller": "Philips Domestic Appliances Store",
+    "isFeatured": true,
+    "images": [
+      "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=800&q=80"
+    ],
+    "dimensions": "36cm x 26cm x 29cm",
+    "barcode": "890123456714",
+    "id": 53945,
+    "createdAt": "2026-10-23T15:34:13.945Z"
+  }
+]

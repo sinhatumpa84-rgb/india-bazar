@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Royal Shahi Dry Fruits & Festive Sweets Gift Hamper (1.2 Kg)",
+    "brand": "Haldiram's Royale",
+    "category": "sweets",
+    "subcategory": "Festive Hampers",
+    "description": "Luxurious festive gift box featuring silver-vark Kaju Katli, roasted California Almonds, jumbo Cashews, Afghan Raisins, and Pistachio Baklava.",
+    "mrp": 2499,
+    "price": 1299,
+    "discount": 48,
+    "manufacturerName": "Haldiram Foods International Pvt. Ltd.",
+    "manufacturerAddress": "Haldiram House, Bhandara Road, Nagpur, Maharashtra - 440035, India",
+    "countryOfOrigin": "India",
+    "netQuantity": "1.2 Kg Net Weight",
+    "stock": 80,
+    "gstSlab": 5,
+    "rating": 4.8,
+    "reviewCount": 1650,
+    "seller": "Haldiram Official Store",
+    "isFeatured": true,
+    "images": [
+      "https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=800&q=80"
+    ],
+    "dimensions": "30cm x 24cm x 7cm Gift Box",
+    "barcode": "890123456710",
+    "id": 53218,
+    "createdAt": "2026-10-23T15:34:13.218Z"
+  },
+  {
+    "name": "Artisanal Pure Desi Ghee Motichoor Ladoo Box (800g)",
+    "brand": "Bhikharam Chandmal",
+    "category": "sweets",
+    "subcategory": "Traditional Sweets",
+    "description": "Melt-in-mouth golden Motichoor Ladoos made with 100% pure cow desi ghee, infused with saffron strands and aromatic green cardamom.",
+    "mrp": 999,
+    "price": 499,
+    "discount": 50,
+    "manufacturerName": "Bhikharam Chandmal Mithai Bhandar",
+    "manufacturerAddress": "Bikaner Sweets Complex, Rajasthan - 334001, India",
+    "countryOfOrigin": "India",
+    "netQuantity": "800 Grams (16 Ladoos)",
+    "stock": 60,
+    "gstSlab": 5,
+    "rating": 4.7,
+    "reviewCount": 420,
+    "seller": "Chandmal Direct",
+    "isFeatured": false,
+    "images": [
+      "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=800&q=80"
+    ],
+    "dimensions": "Shelf life: 25 days from packaging",
+    "barcode": "890123456711",
+    "id": 53220,
+    "createdAt": "2026-10-23T15:34:13.219Z"
+  }
+]

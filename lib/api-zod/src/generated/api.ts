@@ -48,6 +48,13 @@ export const ListProductsResponse = zod.object({
   "stock": zod.number(),
   "seller": zod.string(),
   "isFeatured": zod.boolean(),
+  "manufacturerName": zod.string().nullish(),
+  "manufacturerAddress": zod.string().nullish(),
+  "countryOfOrigin": zod.string().nullish(),
+  "netQuantity": zod.string().nullish(),
+  "gstSlab": zod.number().nullish(),
+  "dimensions": zod.string().nullish(),
+  "barcode": zod.string().nullish(),
   "createdAt": zod.string()
 })),
   "total": zod.number(),
@@ -75,6 +82,13 @@ export const GetFeaturedProductsResponseItem = zod.object({
   "stock": zod.number(),
   "seller": zod.string(),
   "isFeatured": zod.boolean(),
+  "manufacturerName": zod.string().nullish(),
+  "manufacturerAddress": zod.string().nullish(),
+  "countryOfOrigin": zod.string().nullish(),
+  "netQuantity": zod.string().nullish(),
+  "gstSlab": zod.number().nullish(),
+  "dimensions": zod.string().nullish(),
+  "barcode": zod.string().nullish(),
   "createdAt": zod.string()
 })
 export const GetFeaturedProductsResponse = zod.array(GetFeaturedProductsResponseItem)
@@ -99,6 +113,13 @@ export const GetDealsOfTheDayResponseItem = zod.object({
   "stock": zod.number(),
   "seller": zod.string(),
   "isFeatured": zod.boolean(),
+  "manufacturerName": zod.string().nullish(),
+  "manufacturerAddress": zod.string().nullish(),
+  "countryOfOrigin": zod.string().nullish(),
+  "netQuantity": zod.string().nullish(),
+  "gstSlab": zod.number().nullish(),
+  "dimensions": zod.string().nullish(),
+  "barcode": zod.string().nullish(),
   "createdAt": zod.string()
 })
 export const GetDealsOfTheDayResponse = zod.array(GetDealsOfTheDayResponseItem)
@@ -127,7 +148,56 @@ export const GetProductResponse = zod.object({
   "stock": zod.number(),
   "seller": zod.string(),
   "isFeatured": zod.boolean(),
+  "manufacturerName": zod.string().nullish(),
+  "manufacturerAddress": zod.string().nullish(),
+  "countryOfOrigin": zod.string().nullish(),
+  "netQuantity": zod.string().nullish(),
+  "gstSlab": zod.number().nullish(),
+  "dimensions": zod.string().nullish(),
+  "barcode": zod.string().nullish(),
   "createdAt": zod.string()
+})
+
+
+/**
+ * @summary Trigger real-time web scraping
+ */
+export const ScrapeProductsBody = zod.object({
+  "category": zod.string().optional(),
+  "query": zod.string().optional(),
+  "limit": zod.number().optional()
+})
+
+export const ScrapeProductsResponse = zod.object({
+  "success": zod.boolean(),
+  "message": zod.string(),
+  "count": zod.number(),
+  "source": zod.string(),
+  "products": zod.array(zod.object({
+  "id": zod.number(),
+  "name": zod.string(),
+  "description": zod.string(),
+  "price": zod.number(),
+  "mrp": zod.number(),
+  "discount": zod.number(),
+  "category": zod.string(),
+  "subcategory": zod.string().nullish(),
+  "brand": zod.string(),
+  "images": zod.array(zod.string()),
+  "rating": zod.number(),
+  "reviewCount": zod.number(),
+  "stock": zod.number(),
+  "seller": zod.string(),
+  "isFeatured": zod.boolean(),
+  "manufacturerName": zod.string().nullish(),
+  "manufacturerAddress": zod.string().nullish(),
+  "countryOfOrigin": zod.string().nullish(),
+  "netQuantity": zod.string().nullish(),
+  "gstSlab": zod.number().nullish(),
+  "dimensions": zod.string().nullish(),
+  "barcode": zod.string().nullish(),
+  "createdAt": zod.string()
+}))
 })
 
 
@@ -167,6 +237,13 @@ export const GetCartResponse = zod.object({
   "stock": zod.number(),
   "seller": zod.string(),
   "isFeatured": zod.boolean(),
+  "manufacturerName": zod.string().nullish(),
+  "manufacturerAddress": zod.string().nullish(),
+  "countryOfOrigin": zod.string().nullish(),
+  "netQuantity": zod.string().nullish(),
+  "gstSlab": zod.number().nullish(),
+  "dimensions": zod.string().nullish(),
+  "barcode": zod.string().nullish(),
   "createdAt": zod.string()
 }),
   "quantity": zod.number()
@@ -206,6 +283,13 @@ export const AddToCartResponse = zod.object({
   "stock": zod.number(),
   "seller": zod.string(),
   "isFeatured": zod.boolean(),
+  "manufacturerName": zod.string().nullish(),
+  "manufacturerAddress": zod.string().nullish(),
+  "countryOfOrigin": zod.string().nullish(),
+  "netQuantity": zod.string().nullish(),
+  "gstSlab": zod.number().nullish(),
+  "dimensions": zod.string().nullish(),
+  "barcode": zod.string().nullish(),
   "createdAt": zod.string()
 }),
   "quantity": zod.number()
@@ -242,6 +326,13 @@ export const UpdateCartItemResponse = zod.object({
   "stock": zod.number(),
   "seller": zod.string(),
   "isFeatured": zod.boolean(),
+  "manufacturerName": zod.string().nullish(),
+  "manufacturerAddress": zod.string().nullish(),
+  "countryOfOrigin": zod.string().nullish(),
+  "netQuantity": zod.string().nullish(),
+  "gstSlab": zod.number().nullish(),
+  "dimensions": zod.string().nullish(),
+  "barcode": zod.string().nullish(),
   "createdAt": zod.string()
 }),
   "quantity": zod.number()
@@ -286,6 +377,13 @@ export const GetWishlistResponseItem = zod.object({
   "stock": zod.number(),
   "seller": zod.string(),
   "isFeatured": zod.boolean(),
+  "manufacturerName": zod.string().nullish(),
+  "manufacturerAddress": zod.string().nullish(),
+  "countryOfOrigin": zod.string().nullish(),
+  "netQuantity": zod.string().nullish(),
+  "gstSlab": zod.number().nullish(),
+  "dimensions": zod.string().nullish(),
+  "barcode": zod.string().nullish(),
   "createdAt": zod.string()
 }),
   "addedAt": zod.string()
@@ -319,6 +417,13 @@ export const AddToWishlistResponse = zod.object({
   "stock": zod.number(),
   "seller": zod.string(),
   "isFeatured": zod.boolean(),
+  "manufacturerName": zod.string().nullish(),
+  "manufacturerAddress": zod.string().nullish(),
+  "countryOfOrigin": zod.string().nullish(),
+  "netQuantity": zod.string().nullish(),
+  "gstSlab": zod.number().nullish(),
+  "dimensions": zod.string().nullish(),
+  "barcode": zod.string().nullish(),
   "createdAt": zod.string()
 }),
   "addedAt": zod.string()
@@ -362,6 +467,13 @@ export const ListOrdersResponseItem = zod.object({
   "stock": zod.number(),
   "seller": zod.string(),
   "isFeatured": zod.boolean(),
+  "manufacturerName": zod.string().nullish(),
+  "manufacturerAddress": zod.string().nullish(),
+  "countryOfOrigin": zod.string().nullish(),
+  "netQuantity": zod.string().nullish(),
+  "gstSlab": zod.number().nullish(),
+  "dimensions": zod.string().nullish(),
+  "barcode": zod.string().nullish(),
   "createdAt": zod.string()
 }),
   "quantity": zod.number(),
@@ -423,6 +535,13 @@ export const PlaceOrderResponse = zod.object({
   "stock": zod.number(),
   "seller": zod.string(),
   "isFeatured": zod.boolean(),
+  "manufacturerName": zod.string().nullish(),
+  "manufacturerAddress": zod.string().nullish(),
+  "countryOfOrigin": zod.string().nullish(),
+  "netQuantity": zod.string().nullish(),
+  "gstSlab": zod.number().nullish(),
+  "dimensions": zod.string().nullish(),
+  "barcode": zod.string().nullish(),
   "createdAt": zod.string()
 }),
   "quantity": zod.number(),
@@ -481,6 +600,13 @@ export const GetOrderResponse = zod.object({
   "stock": zod.number(),
   "seller": zod.string(),
   "isFeatured": zod.boolean(),
+  "manufacturerName": zod.string().nullish(),
+  "manufacturerAddress": zod.string().nullish(),
+  "countryOfOrigin": zod.string().nullish(),
+  "netQuantity": zod.string().nullish(),
+  "gstSlab": zod.number().nullish(),
+  "dimensions": zod.string().nullish(),
+  "barcode": zod.string().nullish(),
   "createdAt": zod.string()
 }),
   "quantity": zod.number(),
@@ -539,6 +665,13 @@ export const CancelOrderResponse = zod.object({
   "stock": zod.number(),
   "seller": zod.string(),
   "isFeatured": zod.boolean(),
+  "manufacturerName": zod.string().nullish(),
+  "manufacturerAddress": zod.string().nullish(),
+  "countryOfOrigin": zod.string().nullish(),
+  "netQuantity": zod.string().nullish(),
+  "gstSlab": zod.number().nullish(),
+  "dimensions": zod.string().nullish(),
+  "barcode": zod.string().nullish(),
   "createdAt": zod.string()
 }),
   "quantity": zod.number(),

@@ -32,6 +32,13 @@ export const productsTable = pgTable("products", {
   stock: integer("stock").notNull().default(0),
   seller: text("seller").notNull(),
   isFeatured: boolean("is_featured").notNull().default(false),
+  manufacturerName: text("manufacturer_name"),
+  manufacturerAddress: text("manufacturer_address"),
+  countryOfOrigin: text("country_of_origin").default("India"),
+  netQuantity: text("net_quantity"),
+  gstSlab: integer("gst_slab").default(18),
+  dimensions: text("dimensions"),
+  barcode: text("barcode"),
   createdAt: timestamp("created_at", { withTimezone: true })
     .notNull()
     .defaultNow(),

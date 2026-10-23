@@ -80,7 +80,7 @@ const navItems = [
   { icon: Settings, label: 'Settings' },
 ];
 
-function Kpi({ icon: Icon, label, value, delta, up, sub, delay }) {
+function Kpi({ icon: Icon, label, value, delta, up, sub, delay }: any) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 14 }}
@@ -111,7 +111,7 @@ export default function App() {
   const [range, setRange] = useState('7D');
   const [orderFilter, setOrderFilter] = useState('All');
 
-  const data = revenueData[range];
+  const data = (revenueData as any)[range];
   const filteredOrders = orderFilter === 'All' ? orders : orders.filter(o => o.status === orderFilter);
 
   return (
@@ -356,7 +356,7 @@ export default function App() {
                     <tbody>
                       <AnimatePresence>
                         {filteredOrders.map((o, i) => {
-                          const s = statusStyle[o.status];
+                          const s = (statusStyle as any)[o.status];
                           return (
                             <motion.tr
                               key={o.id}

@@ -23,5 +23,19 @@ export interface Product {
   stock: number;
   seller: string;
   isFeatured: boolean;
+  /** @nullable */
+  manufacturerName?: string | null;
+  /** @nullable */
+  manufacturerAddress?: string | null;
+  /** @nullable */
+  countryOfOrigin?: string | null;
+  /** @nullable */
+  netQuantity?: string | null;
+  /** @nullable */
+  gstSlab?: number | null;
+  /** @nullable */
+  dimensions?: string | null;
+  /** @nullable */
+  barcode?: string | null;
   createdAt: string;
 }

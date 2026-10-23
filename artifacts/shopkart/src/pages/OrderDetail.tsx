@@ -14,7 +14,7 @@ export default function OrderDetail() {
   const queryClient = useQueryClient();
   const { toast } = useToast();
   
-  const { data: order, isLoading } = useGetOrder(orderId, { query: { enabled: !!orderId } });
+  const { data: order, isLoading } = useGetOrder(orderId, { query: { enabled: !!orderId } as any });
   const cancelOrder = useCancelOrder();
 
   const handleCancelOrder = () => {
@@ -74,7 +74,7 @@ export default function OrderDetail() {
     if (isCancelled) return index === 0; // Only Order Placed is completed if cancelled
     
     // Status hierarchy mapping
-    const statusOrder = [
+    const statusOrder: OrderStatus[] = [
       OrderStatus.pending,
       OrderStatus.confirmed,
       OrderStatus.shipped,

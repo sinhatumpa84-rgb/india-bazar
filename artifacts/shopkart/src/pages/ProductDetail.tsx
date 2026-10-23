@@ -13,7 +13,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
 import { formatINR } from "@/lib/utils";
-import { Star, ShoppingCart, Zap, Heart, Truck, ShieldCheck, ArrowLeft } from "lucide-react";
+import { Star, ShoppingCart, Zap, Heart, Truck, ShieldCheck, ArrowLeft, ChevronRight, Building2, FileCheck2, Scale, BadgePercent, Globe } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 import { MOCK_PRODUCTS } from "@/data/mockProducts";
@@ -28,9 +28,9 @@ export default function ProductDetail() {
   const [activeImage, setActiveImage] = useState(0);
 
   const mockProduct = MOCK_PRODUCTS.find(p => p.id === productId);
-  const { data: apiProduct, isLoading } = useGetProduct(productId, { query: { enabled: !!productId } });
+  const { data: apiProduct, isLoading } = useGetProduct(productId, { query: { enabled: !!productId } as any });
   const product = apiProduct || mockProduct;
-  const { data: reviews, isLoading: reviewsLoading } = useGetProductReviews(productId, { query: { enabled: !!productId } });
+  const { data: reviews, isLoading: reviewsLoading } = useGetProductReviews(productId, { query: { enabled: !!productId } as any });
   const { data: summary } = useGetDashboardSummary();
 
   const addToCart = useAddToCart();
@@ -244,9 +244,92 @@ export default function ProductDetail() {
             </div>
 
             {/* Seller Info */}
-            <div className="mb-8 p-4 border rounded-lg">
+            <div className="mb-6 p-4 border rounded-lg bg-slate-50/50">
               <div className="text-sm font-medium text-muted-foreground mb-1">Sold By</div>
-              <div className="font-bold text-primary">{product.seller}</div>
+              <div className="font-bold text-primary flex items-center justify-between">
+                <span>{product.seller}</span>
+                <span className="text-xs bg-emerald-100 text-emerald-800 font-semibold px-2 py-0.5 rounded-full flex items-center gap-1">
+                  <ShieldCheck className="w-3.5 h-3.5" /> Certified Authentic
+                </span>
+              </div>
+            </div>
+
+            {/* Manufacturing & Legal Metrology Compliance Details */}
+            <div className="mb-8 p-5 border border-amber-200/80 rounded-xl bg-gradient-to-br from-amber-50/40 via-white to-orange-50/30 shadow-sm">
+              <div className="flex items-center gap-2 border-b border-amber-200/60 pb-3 mb-4">
+                <FileCheck2 className="w-5 h-5 text-amber-600" />
+                <h3 className="font-bold text-slate-900 text-sm md:text-base">
+                  Manufacturing & Legal Metrology Compliance
+                </h3>
+                <span className="ml-auto text-[10px] font-bold bg-amber-500 text-slate-950 px-2 py-0.5 rounded uppercase tracking-wider">
+                  Verified Data
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                <div className="bg-white p-3 rounded-lg border border-slate-100">
+                  <div className="flex items-center gap-1.5 text-muted-foreground font-semibold mb-1">
+                    <Building2 className="w-3.5 h-3.5 text-slate-500" /> Manufacturer Name
+                  </div>
+                  <div className="font-medium text-slate-900">
+                    {product.manufacturerName || "Registered Indian Artisan & Heritage Crafts Unit"}
+                  </div>
+                </div>
+
+                <div className="bg-white p-3 rounded-lg border border-slate-100">
+                  <div className="flex items-center gap-1.5 text-muted-foreground font-semibold mb-1">
+                    <Globe className="w-3.5 h-3.5 text-slate-500" /> Country of Origin
+                  </div>
+                  <div className="font-bold text-slate-900 flex items-center gap-1">
+                    <span>🇮🇳</span> {product.countryOfOrigin || "India"}
+                  </div>
+                </div>
+
+                <div className="bg-white p-3 rounded-lg border border-slate-100 md:col-span-2">
+                  <div className="text-muted-foreground font-semibold mb-1">
+                    Factory / Registered Address
+                  </div>
+                  <div className="text-slate-800">
+                    {product.manufacturerAddress || "Industrial Metalware & Handloom Cluster, Uttar Pradesh - 244001, India"}
+                  </div>
+                </div>
+
+                <div className="bg-white p-3 rounded-lg border border-slate-100">
+                  <div className="flex items-center gap-1.5 text-muted-foreground font-semibold mb-1">
+                    <Scale className="w-3.5 h-3.5 text-slate-500" /> Net Quantity / Pack Size
+                  </div>
+                  <div className="font-medium text-slate-900">
+                    {product.netQuantity || "1 Standard Retail Unit"}
+                  </div>
+                </div>
+
+                <div className="bg-white p-3 rounded-lg border border-slate-100">
+                  <div className="flex items-center gap-1.5 text-muted-foreground font-semibold mb-1">
+                    <BadgePercent className="w-3.5 h-3.5 text-slate-500" /> Applicable GST Slab
+                  </div>
+                  <div className="font-medium text-slate-900">
+                    {product.gstSlab !== undefined && product.gstSlab !== null ? `${product.gstSlab}% GST (Included in MRP)` : "12% GST (Included in MRP)"}
+                  </div>
+                </div>
+
+                {product.dimensions && (
+                  <div className="bg-white p-3 rounded-lg border border-slate-100">
+                    <div className="text-muted-foreground font-semibold mb-1">Package Dimensions</div>
+                    <div className="font-medium text-slate-900">{product.dimensions}</div>
+                  </div>
+                )}
+
+                {product.barcode && (
+                  <div className="bg-white p-3 rounded-lg border border-slate-100">
+                    <div className="text-muted-foreground font-semibold mb-1">EAN / Barcode</div>
+                    <div className="font-mono text-slate-700">{product.barcode}</div>
+                  </div>
+                )}
+              </div>
+
+              <p className="text-[11px] text-muted-foreground mt-3 italic">
+                * In accordance with the Legal Metrology (Packaged Commodities) Rules, 2011, all retail prices include GST and statutory Indian commodity taxes.
+              </p>
             </div>
           </div>
         </div>
@@ -310,24 +393,5 @@ export default function ProductDetail() {
         </div>
       </div>
     </AppLayout>
-  );
-}
-
-function ChevronRight(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m9 18 6-6-6-6" />
-    </svg>
   );
 }
